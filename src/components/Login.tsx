@@ -2,10 +2,11 @@ import { useContext, useState } from "react";
 import { userContext } from "../context/UserContext";
 export default function Login() {
   const [value, setValue] = useState("");
-  const { setUser } = useContext(userContext);
+  const { dispatch } = useContext(userContext);
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setUser(value);
+    // setUser(value);
+    dispatch({ type: "login", payload: value });
   }
   return (
     <div>
